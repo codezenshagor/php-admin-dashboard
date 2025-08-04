@@ -16,17 +16,20 @@ function insert_employee() {
     }
 
     // check unique user_id
-    $exists = $db->fetch("SELECT id FROM employees WHERE user_id = ?", [$user_id]);
+    $exists = $db->fetch("SELECT id FROM employees WHERE user_id = ? OR email=?", [$user_id,$email]);
     if ($exists) {
-        echo "❌ user_id already exists.";
-        return;
+        $_SESSION['error']="This user id: $user_id or Email: $email already exist";
+        
+    }else{
+       
+         $location_id = $_POST['location_id'] ?? null;
+        $id = $db->insert("INSERT INTO employees (name, user_id, group_id, zkteco_user_id, email, mobile, image, location_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                [$name, $user_id, $group_id, $zkteco_user_id, $email, $mobile, $image, $location_id]);
+        $_SESSION['success']="Employee add success";
     }
 
-    $location_id = $_POST['location_id'] ?? null;
-    $id = $db->insert("INSERT INTO employees (name, user_id, group_id, zkteco_user_id, email, mobile, image, location_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                [$name, $user_id, $group_id, $zkteco_user_id, $email, $mobile, $image, $location_id]);
-
-    echo $id ? "✅ Employee inserted!" : "❌ Insert failed!";
+   
+   
 }
 
 function update_employee() {

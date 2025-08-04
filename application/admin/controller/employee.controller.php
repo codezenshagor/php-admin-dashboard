@@ -7,13 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_employee'])) {
     } else {
         insert_employee();
     }
-    echo "<script>location.href=window.location.href;</script>";
+    header("Location:/admin/user-add");
+    die();
 }
 
 if (isset($_GET['delete_employee'])) {
     $id = intval($_GET['delete_employee']);
     $db->delete("DELETE FROM employees WHERE id=?", [$id]);
-    echo "<script>location.href='?';</script>";
+      $_SESSION['success']="Delete success";
+       header("Location:/admin/user-add");
+    die();
 }
         require_once("views/admin/employee/add-employee.php");
          die();

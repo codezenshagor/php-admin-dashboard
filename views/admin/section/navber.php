@@ -282,7 +282,7 @@
             <!-- management start -->
 
 
-                        <li class="pcoded-hasmenu">
+        <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
               <span class="pcoded-micon"><i class="feather icon-smartphone"></i></span>
               <span class="pcoded-mtext">Shop</span>
@@ -312,6 +312,7 @@
             </a>
             <ul class="pcoded-submenu">
               <li><a href="/admin/shop-user" class="waves-effect waves-dark"><span class="pcoded-mtext">User add</span></a></li>
+               <li><a href="/admin/shop-user-list" class="waves-effect waves-dark"><span class="pcoded-mtext">User List</span></a></li>
             </ul>
           </li>
 

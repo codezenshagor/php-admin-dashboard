@@ -132,7 +132,7 @@ $files = [
     'config'     => ['main_function.php','api.config.php'],
     'model'      => ['auth.model.php', 'profile.model.php', 'dashboard.model.php','groups.model.php','shifts.model.php','employees.model.php',
                         'employee-shift.model.php','salaries.model.php','salaries.model.php',
-                        'over-time.model.php','device.model.php','shop.model.php'],
+                        'over-time.model.php','device.model.php','shop.model.php','shop.user.model.php'],
      'mail'     => ['index.php'],
     'controller' => ['profile.controller.php', 'auth.controller.php', 'dashboard.controller.php', 
     'groups.controller.php','shift.controller.php','employee.controller.php','attandance.controller.php',

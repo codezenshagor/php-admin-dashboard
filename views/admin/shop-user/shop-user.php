@@ -57,38 +57,118 @@
 <!-- now start main -->
 <form action="" method="post">
     <div class="card p-4">
+
+  <div class="form-group">
+    <label for="role">Select Employee</label>
+    <select name="role" id="select_employee_11" class="form-control" required>
+      <option value="" selected disabled>-- Select Employee --</option>
+      <?php
+        $employee = $db->select("SELECT * FROM employees");
+        foreach($employee as $em):
+      ?>
+      <option value="<?=$em['user_id']?>"><?=$em['name']?> | <?=$em['user_id']?></option>
+      <?php
+        endforeach;
+      ?>
+    </select>
+  </div>
+
+
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" class="form-control" required>
+    <input type="text" name="name" id="name" value="" class="form-control"  required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">User ID</label>
+    <input type="text" name="user_id" id="user_id" value="" class="form-control"  required>
   </div>
 
   <div class="form-group">
     <label for="email">Your Email Address</label>
-    <input type="email" name="email" id="email" class="form-control" required>
+    <input type="email" name="email" id="email" value="" class="form-control"  required>
   </div>
 
+
+
   <div class="form-group">
-    <label for="phone">Phone</label>
-    <input type="text" name="phone" id="phone" class="form-control" required>
+    <label for="phone">Phone (optional)</label>
+    <input type="text" name="phone" id="phone" class="form-control" >
   </div>
 
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" name="password" id="password" class="form-control" required>
+    <input type="text" name="password" id="password" class="form-control" required>
   </div>
 
   <div class="form-group">
     <label for="role">Select Role</label>
     <select name="role" id="role" class="form-control" required>
       <option value="">-- Select Role --</option>
-      <option value="full_control">Full Control</option>
+      <option value="admin">Full Control</option>
       <option value="shop_accountant">Shop Accountant</option>
       <option value="employee">Employee</option>
     </select>
   </div>
+
+   <div class="form-group">
+        <button name="role_add" class='form-control form-control-sm btn btn-primary'> SUBMIT  </button>
+   </div>
+
+
 </div>
 
 </form>
 
 
 <?php   require_once("views/admin/section/footer.php"); ?>
+<script>
+  $('#select_employee_11').on('change', function() {
+    var userId = $(this).val();
+
+    $.ajax({
+      url: '/admin/select-employee', // এখানে নিজের URL দাও
+      type: 'POST',
+      data: { user_id: userId },
+      dataType:'json',
+      success: function(response) {
+        console.log(response); // সফল হলে কী করবে, সেটা এখানে লিখো
+        $("#name").val(response.name)
+         $("#user_id").val(response.user_id)
+          $("#email").val(response.email)
+           $("#password").val(response.user_id)
+      },
+      error: function(xhr, status, error) {
+        console.error('AJAX Error:', error);
+      }
+    });
+  });
+</script>
+
+<script>
+  $('form').on('submit', function(e) {
+  let valid = true;
+
+  // যেসব ফিল্ড readonly ও required, সেগুলোর মান চেক করো
+  $('#name, #user_id, #email').each(function() {
+    if ($(this).val().trim() === '') {
+      valid = false;
+      alert('Please fill all required readonly fields.');
+      $(this).focus();
+      return false; // loop break
+    }
+  });
+
+  // অন্য কোন রোল সিলেক্ট আছে কিনা চেক করো
+  if ($('#role').val() === '') {
+    valid = false;
+    alert('Please select a role.');
+    $('#role').focus();
+  }
+
+  if (!valid) {
+    e.preventDefault();
+  }
+});
+
+</script>
