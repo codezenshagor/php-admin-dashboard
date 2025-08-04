@@ -16,6 +16,7 @@
 
                     if ($user) {
                         $_SESSION['user_id'] = $user['id'];
+                        $_SESSION['permission']=$user['permission'];
                         $_SESSION['success'] = "Log in success with cookies";
                         header("Location:/admin/dashboard");
                     die();

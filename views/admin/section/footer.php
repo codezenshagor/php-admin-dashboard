@@ -81,12 +81,35 @@
 <script type="<?=$urls?>views/admin/assets/2d8d78e876b340f9029c575b-text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="<?=$urls?>views/admin/assets/2d8d78e876b340f9029c575b-text/javascript" src="<?=$urls?>views/admin/assets/js/gmaps.js"></script>
 
+<script type="88add89075ed2b878b934720-text/javascript" src="<?=$urls?>views/admin/assets/js/select2.full.min.js"></script>
+
+<script type="88add89075ed2b878b934720-text/javascript" src="<?=$urls?>views/admin/assets/js/bootstrap-multiselect.js">
+</script>
+<script type="88add89075ed2b878b934720-text/javascript" src="<?=$urls?>views/admin/assets/js/jquery.multi-select.js"></script>
+<script type="88add89075ed2b878b934720-text/javascript" src="<?=$urls?>views/admin/assets/js/jquery.quicksearch.js"></script>
+<script type="88add89075ed2b878b934720-text/javascript" src="<?=$urls?>views/admin/assets/js/select2-custom.js"></script>
 <script src="<?=$urls?>views/admin/assets/js/pcoded.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
 <script src="<?=$urls?>views/admin/assets/js/vertical-layout.min.js" type="2d8d78e876b340f9029c575b-text/javascript"></script>
 <script type="2d8d78e876b340f9029c575b-text/javascript" src="<?=$urls?>views/admin/assets/js/crm-dashboard.min.js"></script>
 <script type="2d8d78e876b340f9029c575b-text/javascript" src="<?=$urls?>views/admin/assets/js/script.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script>
+  $(document).ready(function () {
+    let currentPath = window.location.pathname;
+
+    $('.pcoded-submenu li a').each(function () {
+      let $this = $(this);
+      let linkPath = $this.attr('href');
+
+      // Match the current path
+      if (linkPath === currentPath) {
+        $this.closest('li').addClass('active'); // Activate submenu item
+        $this.closest('.pcoded-hasmenu').addClass('active pcoded-trigger'); // Open parent menu
+      }
+    });
+  });
+</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="2d8d78e876b340f9029c575b-text/javascript"></script>
 <script type="2d8d78e876b340f9029c575b-text/javascript">

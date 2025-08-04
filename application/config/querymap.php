@@ -26,7 +26,9 @@ class Database {
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute($params);
     }
-
+public function escapeLike($str) {
+    return addcslashes($str, '%_');
+}
     // DELETE Query
     public function delete($sql, $params = []) {
         $stmt = $this->pdo->prepare($sql);

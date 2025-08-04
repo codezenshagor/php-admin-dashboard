@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';     // database host
-$db   = 'demo_site'; // database name
+$db   = 'attendance'; // database name
 $user = 'root';     // database username
 $pass = ''; // database password
 $charset = 'utf8mb4';    // charset

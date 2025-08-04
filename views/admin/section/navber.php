@@ -9,7 +9,7 @@
 <nav class="navbar header-navbar pcoded-header">
 <div class="navbar-wrapper">
 <div class="navbar-logo">
-<a href="index.html">
+<a href="/admin/dashboard">
 <img class="img-fluid" src="<?=$urls?>views/admin/assets/png/logo.png" alt="Theme-Logo" />
 </a>
 <a class="mobile-menu" id="mobile-collapse" href="#!">
@@ -101,26 +101,18 @@
 <i class="feather icon-chevron-down"></i>
 </div>
 <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-<li>
-<a href="#!">
-<i class="feather icon-settings"></i> Settings
-</a>
-</li>
+
 <li>
 <a href="/admin/profile">
 <i class="feather icon-user"></i> Profile
 </a>
 </li>
-<li>
+<!-- <li>
 <a href="email-inbox.html">
 <i class="feather icon-mail"></i> My Messages
 </a>
-</li>
-<li>
-<a href="auth-lock-screen.html">
-<i class="feather icon-lock"></i> Lock Screen
-</a>
-</li>
+</li> -->
+
 <li>
 <a href="/admin/logout">
 <i class="feather icon-log-out"></i> Logout
@@ -134,7 +126,7 @@
 </div>
 </nav>
 
-<div id="sidebar" class="users p-chat-user showChat">
+<div id="sidebar" class="users d-none p-chat-user showChat">
 <div class="had-container">
 <div class="p-fixed users-main">
 <div class="user-box">
@@ -263,7 +255,7 @@
       <div class="pcoded-navigation-label">Navigation</div>
       <ul class="pcoded-item pcoded-left-item">
 
-        <li class="pcoded-hasmenu active pcoded-trigger">
+        <li class="pcoded-hasmenu ">
           <a href="javascript:void(0)" class="waves-effect waves-dark">
             <span class="pcoded-micon"><i class="feather icon-home"></i></span>
             <span class="pcoded-mtext">Dashboard</span>
@@ -274,20 +266,78 @@
                 <span class="pcoded-mtext">HR Overview</span>
               </a>
             </li>
-            <li class="active">
-              <a href="/admin/attendance" class="waves-effect waves-dark">
-                <span class="pcoded-mtext">Attendance</span>
+
+
+
+            <li class="">
+              <a href="/admin/att-log" class="waves-effect waves-dark">
+                <span class="pcoded-mtext">Attendance Log</span>
               </a>
             </li>
           </ul>
         </li>
 
+
+        
+            <!-- management start -->
+
+
+                        <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)" class="waves-effect waves-dark">
+              <span class="pcoded-micon"><i class="feather icon-smartphone"></i></span>
+              <span class="pcoded-mtext">Shop</span>
+            </a>
+            <ul class="pcoded-submenu">
+              <li><a href="/admin/shop" class="waves-effect waves-dark"><span class="pcoded-mtext">Shop</span></a></li>
+              <li><a href="/admin/shop-report" class="waves-effect waves-dark"><span class="pcoded-mtext">Shop Report</span></a></li>
+            </ul>
+          </li>
+
+          <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)" class="waves-effect waves-dark">
+              <span class="pcoded-micon"><i class="feather icon-smartphone"></i></span>
+              <span class="pcoded-mtext">Shop Entery</span>
+            </a>
+            <ul class="pcoded-submenu">
+              <li><a href="/admin/entry-add" class="waves-effect waves-dark"><span class="pcoded-mtext">Entry Add</span></a></li>
+              <li><a href="/admin/pending-entry" class="waves-effect waves-dark"><span class="pcoded-mtext">Pending Entry</span></a></li>
+              <li><a href="/admin/approved-entry" class="waves-effect waves-dark"><span class="pcoded-mtext">Approved Entry</span></a></li>
+            </ul>
+          </li>
+
+         <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)" class="waves-effect waves-dark">
+              <span class="pcoded-micon"><i class="feather icon-smartphone"></i></span>
+              <span class="pcoded-mtext">Shop user</span>
+            </a>
+            <ul class="pcoded-submenu">
+              <li><a href="/admin/shop-user" class="waves-effect waves-dark"><span class="pcoded-mtext">User add</span></a></li>
+            </ul>
+          </li>
+
+        <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)" class="waves-effect waves-dark">
+              <span class="pcoded-micon"><i class="feather icon-smartphone"></i></span>
+              <span class="pcoded-mtext">Documents</span>
+            </a>
+            <ul class="pcoded-submenu">
+              <li><a href="/admin/device-list" class="waves-effect waves-dark"><span class="pcoded-mtext">Documents Add</span></a></li>
+              <li><a href="/admin/device-list" class="waves-effect waves-dark"><span class="pcoded-mtext">Pending Documents</span></a></li>
+              <li><a href="/admin/device-list" class="waves-effect waves-dark"><span class="pcoded-mtext">Approved Documents</span></a></li>
+            </ul>
+          </li>
+
+
+            <!-- management end -->
+
+
+
         <li>
-          <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <a href="/admin/new-user" class="waves-effect waves-dark">
             <span class="pcoded-micon">
               <i class="feather icon-menu"></i>
             </span>
-            <span class="pcoded-mtext">Navigation</span>
+            <span class="pcoded-mtext">New Employee</span>
           </a>
         </li>
 
@@ -296,11 +346,20 @@
           <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
               <span class="pcoded-micon"><i class="feather icon-smartphone"></i></span>
-              <span class="pcoded-mtext">Device</span>
+              <span class="pcoded-mtext">Locations</span>
             </a>
             <ul class="pcoded-submenu">
-              <li><a href="/admin/device-add" class="waves-effect waves-dark"><span class="pcoded-mtext">Device Add</span></a></li>
-              <li><a href="/admin/device-list" class="waves-effect waves-dark"><span class="pcoded-mtext">Device List</span></a></li>
+              <li><a href="/admin/device-list" class="waves-effect waves-dark"><span class="pcoded-mtext">Location List</span></a></li>
+            </ul>
+          </li>
+
+          <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)" class="waves-effect waves-dark">
+              <span class="pcoded-micon"><i class="feather icon-clock"></i></span>
+              <span class="pcoded-mtext">Groups</span>
+            </a>
+            <ul class="pcoded-submenu">
+              <li><a href="/admin/group-add" class="waves-effect waves-dark"><span class="pcoded-mtext">Groups Add</span></a></li>
             </ul>
           </li>
 
@@ -311,27 +370,29 @@
             </a>
             <ul class="pcoded-submenu">
               <li><a href="/admin/shift-add" class="waves-effect waves-dark"><span class="pcoded-mtext">Shift Add</span></a></li>
-              <li><a href="/admin/shift-list" class="waves-effect waves-dark"><span class="pcoded-mtext">Shift List</span></a></li>
+             
             </ul>
           </li>
 
           <li class="pcoded-hasmenu">
             <a href="javascript:void(0)" class="waves-effect waves-dark">
               <span class="pcoded-micon"><i class="feather icon-users"></i></span>
-              <span class="pcoded-mtext">User</span>
+              <span class="pcoded-mtext">Employee</span>
             </a>
             <ul class="pcoded-submenu">
-              <li><a href="/admin/user-add" class="waves-effect waves-dark"><span class="pcoded-mtext">User Add</span></a></li>
-              <li><a href="/admin/user-list" class="waves-effect waves-dark"><span class="pcoded-mtext">User List</span></a></li>
+              <li><a href="/admin/user-add" class="waves-effect waves-dark"><span class="pcoded-mtext">Employee Add</span></a></li>
             </ul>
           </li>
 
           <li>
-            <a href="/admin/report" class="waves-effect waves-dark">
+            <a href="/admin/attendance-rport" class="waves-effect waves-dark">
               <span class="pcoded-micon"><i class="feather icon-file-text"></i></span>
-              <span class="pcoded-mtext">Report</span>
+              <span class="pcoded-mtext">Attendance Report</span>
             </a>
           </li>
+
+
+
 
         </ul>
 
